@@ -20,6 +20,13 @@ service /reservations on new http:Listener(9090) {
         if (room is ()) {
             return {body: "No rooms available for the given dates"};
         }
+        reservation reservation = {
+            checkoutDate: payload.checkoutDate,
+            checkinDate: payload.checkinDate,
+            id: roomReservations. length() + 1,
+            user: payload.user,
+            room: AvailableRoom
+                    };
         reservation.room = room;
         reservation.checkinDate = payload.checkinDate;
         reservation.checkoutDate = payload.checkoutDate;
